@@ -1,20 +1,55 @@
-.relicSearchButton {
-    border: solid #673ab7 2px;
-    height: 56px;
-    margin-top: -18px;
-    margin-left: 5px;
-}
-
-.itemForm {
-    width: fit-content;
-    height: fit-content;
-    margin-top: 100px;
-    margin-left: auto;
-    margin-right: auto;
-}
+@import "../styles.scss";
 
 .relicSearch {
-    background-color: rgba(0, 0, 0, 0.3);
-    vertical-align: top;
+    display: flex;
+    justify-content: space-between;
+
+    .relicSearchFormField {
+        width: 300px;
+    }
+
+    .relicSearchButton {
+        height: 55px;
+        width: 100px;
+        margin-left: 10px;
+    }
+}
+
+
+.itemForm {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 100px;
     padding: 10px;
+    background-color: rgba(68, 68, 68, 1.0);
+}
+
+mat-table {
+    width: 100%;
+    margin-top: 10px;
+    background-color: rgba(230, 230, 230, 0.8);
+}
+
+.mat-column-name {
+    flex: none;
+    width: 300px;
+}
+
+.mat-column-price {
+    flex: none;
+    width: 100px;
+    justify-content: right;
+}
+
+.commonItem {
+    background: linear-gradient(#cd80324f, rgba(0, 0, 0, 0));
+}
+
+.uncommonItem {
+    background: linear-gradient(#c0c0c04f, rgba(0, 0, 0, 0));
+}
+
+.rareItem {
+    background: linear-gradient(#ffd9004f, rgba(0, 0, 0, 0));
 }

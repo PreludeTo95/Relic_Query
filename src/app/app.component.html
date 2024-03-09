@@ -1,11 +1,37 @@
 <div class="mainContainer">
   <form class="itemForm">
+
     <div class="relicSearch">
-      <mat-form-field>
+      <mat-form-field subscriptSizing="dynamic" class="relicSearchFormField">
         <mat-label>Item Name</mat-label>
         <input matInput placeholder="Axi A1">
       </mat-form-field>
       <button mat-flat-button class="relicSearchButton">click</button>
     </div>
+    
+    <mat-table [dataSource]="dataSource" class="itemTable">
+      
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell class="nameCell" *matCellDef="let element" [ngClass]="{
+          'commonItem': element.rarity === 'common', 
+          'uncommonItem': element.rarity === 'uncommon', 
+          'rareItem': element.rarity === 'rare'}"> 
+          {{element.name}} 
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+        <mat-cell class="priceCell" *matCellDef="let element"> 
+          {{element.price}} 
+          <img src="../assets/icons/platinum.svg" alt="platinum icon">
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
   </form>
 </div>
